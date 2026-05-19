@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Team</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0b1020;
+color:white;
+text-align:center;
+}
+
+.menu{
+background:#111827;
+padding:12px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+.card{
+background:#1e293b;
+margin:20px;
+padding:25px;
+border-radius:15px;
+}
+
+.value{
+font-size:32px;
+color:#22c55e;
+font-weight:bold;
+}
+
+.btn{
+background:#22c55e;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="deposit.html">Deposit</a>
+<a href="withdraw.html">Withdraw</a>
+<a href="team.html">Team</a>
+</div>
+
+<h1>My Team</h1>
+
+<div class="card">
+<h2>Referral ID</h2>
+<div class="value">UD1001</div>
+</div>
+
+<div class="card">
+<h2>Referral Link</h2>
+
+<p id="refLink">
+https://vaishu000.github.io/Uddhar/register.html?ref=UD1001
+</p>
+
+<button class="btn" onclick="copyLink()">
+Copy Link
+</button>
+
+<p id="msg"></p>
+</div>
+
+<div class="card">
+<h2>Direct Referrals</h2>
+<div class="value">0</div>
+</div>
+
+<div class="card">
+<h2>Total Team</h2>
+<div class="value">0</div>
+</div>
+
+<div class="card">
+<h2>Direct Income</h2>
+<div class="value">₹0</div>
+</div>
+
+<div class="card">
+<h2>Level Income</h2>
+<div class="value">₹0</div>
+</div>
+
+<script>
+function copyLink(){
+navigator.clipboard.writeText(
+document.getElementById("refLink").innerText
+);
+
+document.getElementById("msg").innerHTML =
+"Referral Link Copied Successfully";
+}
+</script>
+
+</body>
+</html>
