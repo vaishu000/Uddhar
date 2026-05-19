@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Withdraw</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0b1020;
+color:white;
+text-align:center;
+}
+
+.menu{
+background:#111827;
+padding:12px;
+text-align:center;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+.card{
+background:#1e293b;
+margin:20px;
+padding:25px;
+border-radius:15px;
+}
+
+input{
+width:90%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+.btn{
+background:#22c55e;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+.value{
+font-size:32px;
+color:#22c55e;
+font-weight:bold;
+}
+
+#msg{
+margin-top:15px;
+color:#22c55e;
+}
+</style>
+</head>
+
+<body>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="deposit.html">Deposit</a>
+<a href="withdraw.html">Withdraw</a>
+</div>
+
+<h1>Withdraw Funds</h1>
+
+<div class="card">
+<h2>Available Balance</h2>
+<div class="value">₹0</div>
+</div>
+
+<div class="card">
+<h2>Withdrawal Request</h2>
+
+<input type="number" placeholder="Enter Amount">
+
+<input type="text" placeholder="UPI ID">
+
+<button class="btn" onclick="withdrawReq()">
+Submit Withdrawal
+</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+function withdrawReq(){
+document.getElementById("msg").innerHTML =
+"Withdrawal Request Submitted Successfully";
+}
+</script>
+
+</body>
+</html>
