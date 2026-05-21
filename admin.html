@@ -110,6 +110,23 @@ await getDocs(collection(db,"users"));
 
 document.getElementById("totalUsers").innerText =
 usersSnapshot.size;
+  let html = "";
+
+usersSnapshot.forEach((doc)=>{
+
+const user = doc.data();
+
+html += `
+<tr>
+<td>${user.name || ""}</td>
+<td>${user.email || ""}</td>
+<td>${user.wallet || 0}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("userTable").innerHTML = html;
 
 });
 
