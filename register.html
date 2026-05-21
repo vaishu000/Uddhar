@@ -56,6 +56,12 @@ document.getElementById("referral").value = ref;
 }
   </script>
   <script type="module">
+    import {
+  getFirestore,
+  doc,
+  setDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
@@ -77,11 +83,20 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+    const db = getFirestore(app);
 
 document.getElementById("registerForm")
 .addEventListener("submit", function(e){
 
   e.preventDefault();
+  const name =
+document.getElementById("name").value;
+
+const mobile =
+document.getElementById("mobile").value;
+
+const referral =
+document.getElementById("referral").value;
 
   const email =
   document.getElementById("email").value;
@@ -95,13 +110,26 @@ document.getElementById("registerForm")
     password
   )
 
-  .then((userCredential)=>{
+  .then(async (userCredential)=>{
 
-    alert("Account Created Successfully");
+  const user = userCredential.user;
 
-    window.location.href = "dashboard.html";
+  await setDoc(doc(db,"users",user.uid),{
 
-  })
+    name: name,
+    email: email,
+    mobile: mobile,
+    referral: referral,
+    uid: user.uid,
+    createdAt: new Date()
+
+  });
+
+  alert("Account Created Successfully");
+
+  window.location.href = "dashboard.html";
+
+})
 
   .catch((error)=>{
 
