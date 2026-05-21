@@ -19,7 +19,64 @@ margin-bottom:10px;
 </style>
 </head>
 <body>
+<script type="module">
 
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "",
+  authDomain: "uddhar-community.firebaseapp.com",
+  projectId: "uddhar-community",
+  storageBucket: "uddhar-community.firebasestorage.app",
+  messagingSenderId: "784644070311",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+onAuthStateChanged(auth, async (user)=>{
+
+if(!user){
+alert("Please Login First");
+window.location.href="login.html";
+return;
+}
+
+const userDoc =
+await getDoc(doc(db,"users",user.uid));
+
+if(!userDoc.exists()){
+window.location.href="index.html";
+return;
+}
+
+const data = userDoc.data();
+
+if(data.role !== "admin"){
+alert("Access Denied");
+window.location.href="dashboard.html";
+return;
+}
+
+});
+
+  </script>
 <h1>Admin Panel</h1>
 
 <div class="card">
