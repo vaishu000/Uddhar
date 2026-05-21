@@ -48,6 +48,21 @@ text-decoration:none;
 margin:8px;
 font-size:18px;
 }
+  .dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+padding:15px;
+}
+
+.card{
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
 
 </style>
 </head>
@@ -69,6 +84,7 @@ font-size:18px;
 <h1>User Dashboard</h1>
 <p>Welcome To Uddhar Community</p>
 </div>
+  <div class="dashboard">
 
 <div class="card">
 <h2>User ID</h2>
@@ -118,6 +134,7 @@ font-size:18px;
 <h2>AHR Token Balance</h2>
 <div class="value">0 AHR</div>
 </div>
+  </div>
 
 </body>
 </html>
