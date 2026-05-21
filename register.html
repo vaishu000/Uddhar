@@ -116,14 +116,19 @@ document.getElementById("referral").value;
 
   await setDoc(doc(db,"users",user.uid),{
 
-    name: name,
-    email: email,
-    mobile: mobile,
-    referral: referral,
-    uid: user.uid,
-    createdAt: new Date()
+name: name,
+email: email,
+mobile: mobile,
+referral: referral,
+uid: user.uid,
 
-  });
+role: "user",
+wallet: 0,
+status: "active",
+
+createdAt: new Date()
+
+});
 
   alert("Account Created Successfully");
 
