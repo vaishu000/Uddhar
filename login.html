@@ -74,6 +74,55 @@ function showPassword() {
   }
 }
   </script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBOySIYXBy8XqpSr2WjC-k7KBMZZMFWlgk",
+  authDomain: "uddhar-community.firebaseapp.com",
+  projectId: "uddhar-community",
+  storageBucket: "uddhar-community.firebasestorage.app",
+  messagingSenderId: "784644070311",
+  appId: "1:784644070311:web:c434d4ce4e30a30c14f482",
+  measurementId: "G-9FY98FB3ET"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+document.getElementById("loginForm")
+.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  const email =
+  document.getElementById("email").value;
+
+  const password =
+  document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth,email,password)
+
+  .then((userCredential)=>{
+
+    alert("Login Successful");
+
+  })
+
+  .catch((error)=>{
+
+    alert(error.message);
+
+  });
+
+});
+
+</script>
 </body>
 </html>
