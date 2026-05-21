@@ -45,7 +45,9 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
 getFirestore,
 doc,
-getDoc
+getDoc,
+collection,
+getDocs
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -55,7 +57,7 @@ const firebaseConfig = {
   projectId: "uddhar-community",
   storageBucket: "uddhar-community.firebasestorage.app",
   messagingSenderId: "784644070311",
-  appId: ""1:784644070311:web:c434d4ce4e30a30c14f482
+  appId: appId: "1:784644070311:web:c434d4ce4e30a30c14f482"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -85,6 +87,11 @@ alert("Access Denied");
 window.location.href="dashboard.html";
 return;
 }
+  const usersSnapshot =
+await getDocs(collection(db,"users"));
+
+document.getElementById("totalUsers").innerText =
+usersSnapshot.size;
 
 });
 
