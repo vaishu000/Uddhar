@@ -40,10 +40,28 @@ border-radius:8px;
 
 <form>
 <input type="email" placeholder="Email">
-<input type="password" placeholder="Password">
+<input type="password" id="password" placeholder="Password" required>
+<br>
 
+<label>
+<input type="checkbox" onclick="showPassword()">
+ Show Password
+</label>
+
+<br><br>
 <button type="submit">Login</button>
 </form>
+  <script>
+function showPassword() {
+  var x = document.getElementById("password");
+
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+  </script>
 
 </body>
 </html>
