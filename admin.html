@@ -147,6 +147,24 @@ Edit Wallet
 document.getElementById("userTable").innerHTML = html;
 
 });
+  window.updateWallet = async function(uid){
+
+const amount = prompt("Enter New Wallet Balance");
+
+if(amount === null) return;
+
+await updateDoc(
+doc(db,"users",uid),
+{
+wallet: Number(amount)
+}
+);
+
+alert("Wallet Updated Successfully");
+
+location.reload();
+
+  }
 
 </script>
 </body>
