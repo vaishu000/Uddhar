@@ -133,6 +133,11 @@ html += `
 <td>${user.name || ""}</td>
 <td>${user.email || ""}</td>
 <td>${user.wallet || 0}</td>
+<td>
+<button onclick="updateWallet('${doc.id}')">
+Edit Wallet
+</button>
+</td>
 </tr>
 `;
 
