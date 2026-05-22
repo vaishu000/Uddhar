@@ -88,7 +88,7 @@ transform:translateY(-5px);
 
 <div class="card">
 <h2>User ID</h2>
-<div class="value">UD1001</div>
+<div class="value" id="userId">Loading...</div>
 </div>
 
 <div class="card">
@@ -98,7 +98,7 @@ transform:translateY(-5px);
 
 <div class="card">
 <h2>Wallet Balance</h2>
-<div class="value">₹0</div>
+<div class="value" id="walletBalance">₹0</div>
 </div>
   <div class="card">
 <h2>Direct Referral Income</h2>
@@ -154,6 +154,59 @@ transform:translateY(-5px);
 <div class="value">ACTIVE</div>
 </div>
   </div>
+<script type="module">
 
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+doc,
+getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBOySIYXBy8XqpSr2WjC-k7KBMZZMFWlgk",
+  authDomain: "uddhar-community.firebaseapp.com",
+  projectId: "uddhar-community",
+  storageBucket: "uddhar-community.firebasestorage.app",
+  messagingSenderId: "784644070311",
+  appId: "1:784644070311:web:c434d4ce4e30a30c14f482"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+onAuthStateChanged(auth, async (user)=>{
+
+if(!user){
+window.location.href="login.html";
+return;
+}
+
+const userDoc =
+await getDoc(doc(db,"users",user.uid));
+
+if(!userDoc.exists()) return;
+
+const data = userDoc.data();
+
+document.getElementById("walletBalance").innerText =
+"₹" + (data.wallet || 0);
+
+document.getElementById("userId").innerText =
+data.uid;
+
+});
+
+</script>
 </body>
 </html>
