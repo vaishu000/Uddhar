@@ -198,6 +198,7 @@ await getDoc(doc(db,"users",user.uid));
 if(!userDoc.exists()) return;
 
 const data = userDoc.data();
+  alert(JSON.stringify(data));
 
 document.getElementById("walletBalance").innerText =
 "₹" + (data.wallet || 0);
