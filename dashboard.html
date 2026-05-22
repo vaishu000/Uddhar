@@ -203,7 +203,7 @@ document.getElementById("walletBalance").innerText =
 "₹" + (data.wallet || 0);
 
 document.getElementById("userId").innerText =
-data.uid;
+data.userId || data.uid;
 
 });
 
