@@ -115,6 +115,33 @@ document.getElementById("referral").value;
   .then(async (userCredential)=>{
 
   const user = userCredential.user;
+    const counterRef = doc(db, "system", "counter");
+
+const newNumber = await runTransaction(db, async (transaction) => {
+
+const counterDoc = await transaction.get(counterRef);
+
+if (!counterDoc.exists()) {
+
+transaction.set(counterRef, {
+userCount: 1001
+});
+
+return 1001;
+
+}
+
+const nextNumber = counterDoc.data().userCount + 1;
+
+transaction.update(counterRef, {
+userCount: nextNumber
+});
+
+return nextNumber;
+
+});
+
+const userId = "UD" + newNumber;
 
   await setDoc(doc(db,"users",user.uid),{
 
