@@ -202,9 +202,9 @@ const data = userDoc.data();
 document.getElementById("walletBalance").innerText =
 "₹" + (data.wallet || 0);
 
-document.getElementById("userId").innerText =
-data["user Id"] || data.uid;
 
+document.getElementById("userId").innerText =
+"UC-" + data.uid.slice(-6).toUpperCase();
 });
 
 </script>
