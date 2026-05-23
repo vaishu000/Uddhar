@@ -209,8 +209,7 @@ document.getElementById("walletBalance").innerText =
 
 
 document.getElementById("userId").innerText =
-"UC-" + data.uid.slice(-6).toUpperCase();
-});
+data.userId || data.uid;
 
 </script>
 </body>
