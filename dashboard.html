@@ -209,6 +209,8 @@ return;
 }
 
 const data = userDoc.data();
+  document.getElementById("directIncome").innerText =
+"₹" + (data.directIncome || 0);
 
 console.log("User Data:", data);
 
