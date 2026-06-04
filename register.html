@@ -116,6 +116,7 @@ document.getElementById("referral").value;
   )
 
   .then(async (userCredential)=>{
+    alert("Step 1");
 
   const user = userCredential.user;
     const counterRef = doc(db, "system", "counter");
@@ -145,8 +146,10 @@ return nextNumber;
 });
 
 const userId = "UD" + newNumber;
+    alert("Step 2");
 
   await setDoc(doc(db,"users",user.uid),{
+    alert("Step 3");
 name: name,
 email: email,
 mobile: mobile,
