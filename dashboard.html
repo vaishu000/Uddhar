@@ -197,12 +197,21 @@ window.location.href="login.html";
 return;
 }
 
+console.log("User UID:", user.uid);
+
 const userDoc =
 await getDoc(doc(db,"users",user.uid));
 
-if(!userDoc.exists()) return;
+console.log("Document Exists:", userDoc.exists());
+
+if(!userDoc.exists()){
+document.getElementById("userId").innerText = user.uid;
+return;
+}
 
 const data = userDoc.data();
+
+console.log("User Data:", data);
 
 document.getElementById("walletBalance").innerText =
 "₹" + (data.wallet || 0);
