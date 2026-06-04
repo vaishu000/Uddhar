@@ -207,10 +207,10 @@ const data = userDoc.data();
 document.getElementById("walletBalance").innerText =
 "₹" + (data.wallet || 0);
 
-
 document.getElementById("userId").innerText =
-data.userId || data.uid;
+data.userId || data.uid || user.uid;
 
+});
 </script>
 </body>
 </html>
