@@ -144,7 +144,6 @@ return nextNumber;
 const userId = "UD" + newNumber;
 
   await setDoc(doc(db,"users",user.uid),{
-
 name: name,
 email: email,
 mobile: mobile,
@@ -157,10 +156,13 @@ role: "user",
 wallet: 0,
 status: "active",
 
+directIncome: 0,
+levelIncome: 0,
+totalReferrals: 0,
+totalTeam: 0,
+
 createdAt: new Date()
-
 });
-
   alert("Account Created Successfully");
 
   window.location.href = "dashboard.html";
