@@ -56,6 +56,8 @@ document.getElementById("referral").value = ref;
 }
   </script>
   <script type="module">
+    import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import {
   getFirestore,
   doc,
@@ -149,7 +151,6 @@ const userId = "UD" + newNumber;
     alert("Step 2");
 
   await setDoc(doc(db,"users",user.uid),{
-    alert("Step 3");
 name: name,
 email: email,
 mobile: mobile,
@@ -170,17 +171,6 @@ totalTeam: 0,
 createdAt: new Date()
 });
 
-wallet:
-(referrerData.wallet || 0) + 100,
-
-totalReferrals:
-(referrerData.totalReferrals || 0) + 1
-
-});
-
-}
-
-}
   alert("Account Created Successfully");
 
   window.location.href = "dashboard.html";
