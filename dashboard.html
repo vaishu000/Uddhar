@@ -198,6 +198,7 @@ if(!userDoc.exists()){
 document.getElementById("userId").innerText = user.uid;
 return;
 }
+  const data = userDoc.data();
 
 console.log("User Data:", data);
 
