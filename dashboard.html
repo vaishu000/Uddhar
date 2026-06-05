@@ -193,7 +193,6 @@ const userDoc =
 await getDoc(doc(db,"users",user.uid));
 
 console.log("Document Exists:", userDoc.exists());
-  alert("Document Exists: " + userDoc.exists());
 
 if(!userDoc.exists()){
 document.getElementById("userId").innerText = user.uid;
@@ -201,7 +200,8 @@ return;
 }
 
 const data = userDoc.data();
-  alert(JSON.stringify(data));
+  document.getElementById("userId").innerText =
+data.userId || "No User ID";
 
 console.log("User Data:", data);
 
