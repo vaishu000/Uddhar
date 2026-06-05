@@ -167,7 +167,59 @@ Edit Wallet
 });
 
 document.getElementById("userTable").innerHTML = html;
+  let depositHtml = "";
 
+const depositsSnapshot =
+await getDocs(collection(db,"deposits"));
+
+depositsSnapshot.forEach((depositDoc)=>{
+
+const deposit = depositDoc.data();
+
+depositHtml += `
+<tr>
+<td>${deposit.uid || ""}</td>
+<td>₹${deposit.amount || 0}</td>
+<td>${deposit.status || "pending"}</td>
+<td>
+<button onclick="approveDeposit('${depositDoc.id}')">
+Approve
+</button>
+</td>
+</tr>
+`;
+
+});
+
+document.getElementById("depositTable").innerHTML =
+depositHtml;
+  
+let depositHtml = "";
+
+const depositsSnapshot =
+await getDocs(collection(db,"deposits"));
+
+depositsSnapshot.forEach((depositDoc)=>{
+
+const deposit = depositDoc.data();
+
+depositHtml += `
+<tr>
+<td>${deposit.uid || ""}</td>
+<td>₹${deposit.amount || 0}</td>
+<td>${deposit.status || "pending"}</td>
+<td>
+<button onclick="approveDeposit('${depositDoc.id}')">
+Approve
+</button>
+</td>
+</tr>
+`;
+
+});
+
+document.getElementById("depositTable").innerHTML =
+depositHtml;
 });
   window.updateWallet = async function(uid){
 
