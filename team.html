@@ -114,6 +114,8 @@ getFirestore,
 doc,
 getDoc
 }
+  }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
   const firebaseConfig = {
   apiKey: "AIzaSyBOySIYXBy8XqpSr2WjC-k7KBMZZMFWlgk",
   authDomain: "uddhar-community.firebaseapp.com",
@@ -126,9 +128,8 @@ getDoc
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 <script>
+  
 function copyLink(){
 navigator.clipboard.writeText(
 document.getElementById("refLink").innerText
