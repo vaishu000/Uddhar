@@ -114,6 +114,18 @@ getFirestore,
 doc,
 getDoc
 }
+  const firebaseConfig = {
+  apiKey: "AIzaSyBOySIYXBy8XqpSr2WjC-k7KBMZZMFWlgk",
+  authDomain: "uddhar-community.firebaseapp.com",
+  projectId: "uddhar-community",
+  storageBucket: "uddhar-community.firebasestorage.app",
+  messagingSenderId: "784644070311",
+  appId: "1:784644070311:web:c434d4ce4e30a30c14f482"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 <script>
