@@ -205,6 +205,17 @@ console.log("User Data:", data);
 
 document.getElementById("walletBalance").innerText =
 "₹" + (data.wallet || 0);
+  document.getElementById("directReferralIncome").innerText =
+"₹" + (data.directIncome || 0);
+
+document.getElementById("levelIncome").innerText =
+"₹" + (data.levelIncome || 0);
+
+document.getElementById("totalReferrals").innerText =
+data.totalReferrals || 0;
+
+document.getElementById("totalTeam").innerText =
+data.totalTeam || 0;
 
 document.getElementById("userId").innerText =
 data.userId || data.uid || user.uid;
