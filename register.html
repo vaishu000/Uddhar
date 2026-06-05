@@ -160,6 +160,7 @@ if(!querySnapshot.empty){
 const referrerDoc = querySnapshot.docs[0];
 const referrerData = referrerDoc.data();
 
+
 await updateDoc(referrerDoc.ref, {
 
 directIncome:
@@ -179,6 +180,9 @@ totalTeam:
 
 });
 
+}
+
+}
 
   alert("Account Created Successfully");
 
