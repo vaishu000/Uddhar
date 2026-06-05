@@ -123,7 +123,23 @@ alert("Button Clicked");
   const user = userCredential.user;
     const counterRef = doc(db, "system", "counter");
 
-const userId = "UD" + Date.now();
+const counterRef = doc(db, "system", "counter");
+
+const newNumber = await runTransaction(db, async (transaction) => {
+
+const counterDoc = await transaction.get(counterRef);
+
+const nextNumber = (counterDoc.data().userCount || 1000) + 1;
+
+transaction.update(counterRef, {
+userCount: nextNumber
+});
+
+return nextNumber;
+
+});
+
+const userId = "UD" + newNumber;
     alert("Step 2");
 
   await setDoc(doc(db,"users",user.uid),{
