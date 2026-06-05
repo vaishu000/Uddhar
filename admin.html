@@ -38,6 +38,7 @@ text-align:left;
 <table style="width:100%;color:white;">
 <thead>
 <tr>
+<th>User ID</th>
 <th>Name</th>
 <th>Email</th>
 <th>Wallet</th>
@@ -88,7 +89,7 @@ const firebaseConfig = {
   projectId: "uddhar-community",
   storageBucket: "uddhar-community.firebasestorage.app",
   messagingSenderId: "784644070311",
-  appId: "c434d4ce4e30a30c14f482"
+  appId: appId: "1:784644070311:web:c434d4ce4e30a30c14f482"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -131,6 +132,7 @@ const user = doc.data();
 
 html += `
 <tr>
+<td>${user.userId || ""}</td>
 <td>${user.name || ""}</td>
 <td>${user.email || ""}</td>
 <td>${user.wallet || 0}</td>
