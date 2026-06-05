@@ -166,17 +166,16 @@ await updateDoc(referrerDoc.ref, {
 directIncome:
 (referrerData.directIncome || 0) + 100,
 
+levelIncome:
+(referrerData.levelIncome || 0) + 100,
+
 wallet:
-(referrerData.wallet || 0) + 100,
+(referrerData.wallet || 0) + 200,
 
 totalReferrals:
 (referrerData.totalReferrals || 0) + 1
 
 });
-
-}
-
-    }
 
   alert("Account Created Successfully");
 
